@@ -402,7 +402,7 @@ function Tabs:AddTab(tabName)
 			for _, p in ipairs(Players:GetPlayers()) do
 				if p.Name:lower():sub(1, #targetName) == targetName then
 					targetPlayer = p
-                        ActiveTarget = tostring(p.Name)
+                        ActiveTarget = p
 					break
 				end
 			end
@@ -415,6 +415,10 @@ function Tabs:AddTab(tabName)
 			end
 		end)
 	end
+
+function tabModule:GetActiveTarget()
+return ActiveTarget
+    end
 
 	return tabModule
 end
