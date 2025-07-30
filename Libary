@@ -2,7 +2,6 @@ local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local player = Players.LocalPlayer
-local ActiveTarget
 
 -- Screen GUI
 local screenGui = Instance.new("ScreenGui")
@@ -402,7 +401,7 @@ function Tabs:AddTab(tabName)
 			for _, p in ipairs(Players:GetPlayers()) do
 				if p.Name:lower():sub(1, #targetName) == targetName then
 					targetPlayer = p
-                        ActiveTarget = p
+                        _G.ActiveTarget = p
 					break
 				end
 			end
@@ -415,10 +414,6 @@ function Tabs:AddTab(tabName)
 			end
 		end)
 	end
-
-function tabModule:GetActiveTarget()
-return ActiveTarget
-    end
 
 	return tabModule
 end
